@@ -1,0 +1,40 @@
+<package 
+	id="firefox"
+	name="Mozilla Firefox"
+	revision="%version%"
+	reboot="false"
+	priority="10">
+ 
+	<variable name="version" value="6.0.2" />
+	<variable name="architecture" value="x86" />
+	<variable name="locale" value="en-US" />
+ 
+	<check type="uninstall" condition="exists" path="Mozilla Firefox %version% (%architecture% %locale%)" />
+ 
+	<install cmd="taskkill /F /IM Firefox.exe">
+		<exit code="0" />
+		<exit code="-1073741515" />
+		<exit code="128" />
+	</install>
+ 
+	<install cmd='"%SOFTWARE%\firefox\Firefox Setup %version%.exe" -ms' />
+ 
+	<upgrade cmd="taskkill /F /IM Firefox.exe">
+		<exit code="0" />
+		<exit code="128" />
+		<exit code="-1073741515" />
+	</upgrade>
+ 
+	<upgrade cmd='"%SOFTWARE%\firefox\Firefox Setup %version%.exe" -ms' />
+ 
+	<remove cmd="taskkill /F /IM Firefox.exe">
+		<exit code="0" />
+		<exit code="128" />
+		<exit code="-1073741515" />
+	</remove>
+ 
+        <!-- for 32bit and 64bit System -->
+	<remove cmd='%COMSPEC% /C if exist "%PROGRAMFILES%\Mozilla Firefox\uninstall\helper.exe" "%PROGRAMFILES%\Mozilla Firefox\uninstall\helper.exe" -ms' />
+	<remove cmd='%COMSPEC% /C if exist "%PROGRAMFILES(x86)%\Mozilla Firefox\uninstall\helper.exe" "%PROGRAMFILES(x86)%\Mozilla Firefox\uninstall\helper.exe" -ms' />
+ 
+</package>
