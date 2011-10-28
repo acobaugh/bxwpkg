@@ -1,0 +1,5 @@
+<profiles>
+	<profile id="test">
+		<package package-id="firefox" />
+	</profile>
+</profiles>
