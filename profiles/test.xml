@@ -1,5 +1,6 @@
 <profiles>
 	<profile id="test">
 		<package package-id="firefox" />
+		<package package-id="heimdal" />
 	</profile>
 </profiles>
