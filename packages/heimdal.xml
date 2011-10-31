@@ -11,8 +11,8 @@
  
 	<check type="uninstall" condition="exists" path="Heimdal %version%" />
  
-	<install cmd='msiexec /qn /i "%SOFTWARE%\Heimdal-%version%-64bit-BXIntegrated.msi"' architecture="x64" />
-	<upgrade cmd='msiexec /qn /i "%SOFTWARE%\Heimdal-%version%-64bit-BXIntegrated.msi"' architecture="x64" />
+	<install cmd='msiexec /qn /i "%SOFTWARE%\afs_integrated\heimdal\Heimdal-%version%-64bit-BXIntegrated.msi"' architecture="x64" />
+	<upgrade cmd='msiexec /qn /i "%SOFTWARE%\afs_integrated\heimdal\Heimdal-%version%-64bit-BXIntegrated.msi"' architecture="x64" />
  
 </package>
 </packages>
