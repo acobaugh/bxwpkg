@@ -1,6 +1,10 @@
+REM
+REM Right click, select "Run as administrator"
+REM
+
 set SOFTWARE=\\wpkg\wpkg
 
-start /wait cscript \\wpkg\wpkg\.svc-wpkg\master\wpkg.js /synchronize /debug
+cscript \\wpkg\wpkg\.svc-wpkg\master\wpkg.js /synchronize /debug
 
 @ECHO OFF
 ECHO Press any key to exit
