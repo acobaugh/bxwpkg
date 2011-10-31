@@ -4,7 +4,7 @@ REM
 
 set SOFTWARE=\\wpkg\wpkg
 
-cscript \\wpkg\wpkg\.svc-wpkg\master\wpkg.js /synchronize /debug
+cscript \\wpkg\wpkg\.svc-wpkg\master\wpkg.js /synchronize /debug /nonotify
 
 @ECHO OFF
 ECHO Press any key to exit
