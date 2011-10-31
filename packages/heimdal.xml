@@ -1,9 +1,16 @@
+<!--
+Should probably kill these proceses:
+
+	"Network Identity Manager"
+	"Kerberos Credendials Cache RPC Server"
+-->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <packages>
 <package 
 	id="heimdal"
 	name="Heimdal Kerberos"
-	revision="%version%-1"
+	revision="%version%-2"
 	reboot="false"
 	priority="10">
  
