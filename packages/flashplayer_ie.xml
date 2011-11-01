@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packages>
+<package 
+  id="flashplayer_ie"
+  name="Adobe Flash Player for IE"
+  revision="%version%"
+  reboot="false"
+  priority="10">
+ 
+  <variable name="version" value="11.0.1.152" />
+  <variable name="shortversion" value="11c" />
+ 
+  <check type="logical" condition="or">
+    <check
+      type="file"
+      condition="versionequalto"
+      path="%SYSTEMROOT%\system32\Macromed\Flash\Flash%shortversion%.ocx"
+      value="%version%" />
+ 
+    <check
+      type="file"
+      condition="versionequalto"
+      path="%SYSTEMROOT%\SysWOW64\Macromed\Flash\Flash%shortversion%.ocx"
+      value="%version%" />
+  </check>
+ 
+  <install cmd='taskkill /f /im iexplore.exe'>
+    <exit code='0' />
+    <exit code='1' />
+    <exit code='128' />
+  </install>
+ 
+  <install cmd='%SOFTWARE%\flash\uninstall_flash_player_32bit.exe -uninstall activex'>
+    <exit code='any' />
+  </install>
+ 
+  <install cmd='%SOFTWARE%\flash\install_flash_player_ax_32bit.exe -install' />
+ 
+  <upgrade cmd='taskkill /f /im iexplore.exe'>
+    <exit code='0' />
+    <exit code='1' />
+    <exit code='128' />
+  </upgrade>
+ 
+  <upgrade cmd='%SOFTWARE%\flash\uninstall_flash_player_32bit.exe -uninstall activex'>
+    <exit code='any' />
+  </upgrade>
+ 
+  <upgrade cmd='%SOFTWARE%\flash\install_flash_player_ax_32bit.exe -install' />
+ 
+  <remove cmd='%COMSPEC% /C if exist "%SYSTEMROOT%\system32\Macromed\Flash\FlashUtil%shortversion%_ActiveX.exe" "%SYSTEMROOT%\system32\Macromed\Flash\FlashUtil%shortversion%_ActiveX.exe" /uninstall'/>
+ 
+  <remove cmd='%COMSPEC% /C if exist "%SYSTEMROOT%\SysWOW64\Macromed\Flash\FlashUtil%shortversion%_ActiveX.exe" "%SYSTEMROOT%\system32\Macromed\Flash\FlashUtil%shortversion%_ActiveX.exe" /uninstall'/>
+</package>
+</packages>
