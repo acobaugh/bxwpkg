@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packages>
+<package 
+  id="thunderbird"  
+  name="Mozilla Thunderbird"  
+  revision="%version%"  
+  reboot="false"  
+  priority="10">
+ 
+  <variable name="version" value="7.0.1" />
+ 
+  <check type="uninstall" condition="exists" path="Mozilla Thunderbird (%version%)" />
+ 
+  <install cmd='"%SOFTWARE%\thunderbird\Thunderbird Setup %version%.exe" -ms' />
+ 
+  <upgrade cmd='taskkill /F /IM thunderbird.exe'>
+    <exit code="0" />
+    <exit code="128" />
+  </upgrade>
+ 
+  <upgrade cmd='"%SOFTWARE%\thunderbird\Thunderbird Setup %version%.exe" -ms' />
+ 
+  <remove cmd='taskkill /F /IM thunderbird.exe'>
+    <exit code="0" />
+    <exit code="128" />
+  </remove>
+ 
+  <!-- for 32bit and 64bit System -->
+  <remove cmd='%COMSPEC% /C if exist "%PROGRAMFILES%\Mozilla Thunderbird\uninstall\helper.exe" "%PROGRAMFILES%\Mozilla Thunderbird\uninstall\helper.exe" -ms' />
+  <remove cmd='%COMSPEC% /C if exist "%PROGRAMFILES(x86)%\Mozilla Thunderbird\uninstall\helper.exe" "%PROGRAMFILES(x86)%\Mozilla Thunderbird\uninstall\helper.exe" -ms' />
+ 
+</package>
+</packages>

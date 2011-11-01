@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- http://www.google.com/chrome/eula.html?msi=true&hl=en&platform=win -->
+<packages>
+ <package id="chrome" name="Google Chrome 15" revision="%version%" priority="20" reboot="false">
+        <variable name="version" value="15.0.874.106" />
+        <check type="uninstall" condition="exists" path="Google Chrome" />
+        <check type="logical" condition="or">
+            <check type="file" condition="exists" path="%PROGRAMFILES%\Google\Chrome\Application\11.0.696.57\nacl64.exe" />
+            <check type="file" condition="exists" path="%PROGRAMFILES(x86)%\Google\Chrome\Application\11.0.696.57\nacl64.exe" />
+        </check>
+        <install cmd='msiexec /qn /norestart /i "%SOFTWARE%\chrome\GoogleChromeStandaloneEnterprise.msi"' />
+        <upgrade cmd='msiexec /qn /norestart /i "%SOFTWARE%\chrome\GoogleChromeStandaloneEnterprise.msi"' />
+        <remove cmd="msiexec /qn /x {54DF35BD-4A36-35DA-B029-A0C083C88614}" />
+ </package>
+</packages>
