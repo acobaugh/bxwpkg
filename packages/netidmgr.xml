@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packages>
+<package 
+	id="netidmgr"
+	name="Network Identity Manager"
+	revision="%version%-1"
+	reboot="false"
+	priority="10">
+ 
+	<variable name="version" value="2.0.102.907" />
+ 
+	<check type="uninstall" condition="exists" path="Network Identity Manager" />
+	<depends package-id="heimdal" />
+
+	<install cmd='msiexec /qn /i "%SOFTWARE%\afs_integrated\netidmgr-%version%-64bit-BXIntegrated.msi"' architecture="x64" />
+	<upgrade cmd='msiexec /qn /i "%SOFTWARE%\afs_integrated\netidmgr-%version%-64bit-BXIntegrated.msi"' architecture="x64" />
+ 
+</package>
+</packages>
