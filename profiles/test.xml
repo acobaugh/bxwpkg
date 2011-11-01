@@ -1,6 +1,12 @@
 <profiles>
 	<profile id="test">
-		<package package-id="firefox" />
 		<package package-id="heimdal" />
+		<package package-id="netidmgr" />
+		<package package-id="chrome" />
+		<package package-id="putty" />
+		<package package-id="firefox" />
+		<package package-id="thunderbird" />
+		<package package-id="flashplayer_mozilla" />
+		<package package-id="flashplayer_ie" />
 	</profile>
 </profiles>
