@@ -7,7 +7,7 @@
 	reboot="false"
 	priority="10">
  
-	<variable name="version" value="1.5.1.100.930" />
+	<variable name="version" value="1.5.100.930" />
  
 	<check type="uninstall" condition="exists" path="Heimdal %version%" />
  
