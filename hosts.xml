@@ -1,3 +1,4 @@
 <wpkg>
 	<host name="bx-wintest-1" profile-id="test" />
+	<host name="bx-ritchie.*" profile-id="ritchie_lab" />
 </wpkg>

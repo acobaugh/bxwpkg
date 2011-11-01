@@ -1,0 +1,6 @@
+<profiles>
+	<profile id="ritchie_lab">
+		<package package-id="firefox" />
+		<package package-id="heimdal" />
+	</profile>
+</profiles>
