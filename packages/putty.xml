@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packages>
+<package
+  id="putty"
+  name="PuTTY"
+  revision="%version%"
+  priority="0"
+  reboot="false">
+ 
+  <variable name="version" value="0.61" />
+ 
+  <check type="uninstall" condition="exists" path="PuTTY version %version%" />
+ 
+  <install cmd='%SOFTWARE%\putty\putty-%version%-installer.exe /sp- /verysilent' />
+ 
+  <upgrade cmd='%SOFTWARE%\putty\putty-%version%-installer.exe /sp- /verysilent' />
+ 
+  <remove cmd='%COMSPEC% /c copy "%SYSTEMROOT%\system32\print.exe" "%PROGRAMFILES%\PuTTY\putty.exe"' />
+  <remove cmd='"%PROGRAMFILES%\PuTTY\unins000.exe" /sp- /verysilent /norestart' >
+    <exit code="1" />
+  </remove>
+  <remove cmd='%COMSPEC% /c rmdir /s /q "%PROGRAMFILES%\PuTTY"' />
+</package>
+</packages>
