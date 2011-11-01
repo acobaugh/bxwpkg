@@ -5,8 +5,8 @@
         <variable name="version" value="15.0.874.106" />
         <check type="uninstall" condition="exists" path="Google Chrome" />
         <check type="logical" condition="or">
-            <check type="file" condition="exists" path="%PROGRAMFILES%\Google\Chrome\Application\11.0.696.57\nacl64.exe" />
-            <check type="file" condition="exists" path="%PROGRAMFILES(x86)%\Google\Chrome\Application\11.0.696.57\nacl64.exe" />
+            <check type="file" condition="exists" path="%PROGRAMFILES%\Google\Chrome\Application\15.0.874.106\nacl64.exe" />
+            <check type="file" condition="exists" path="%PROGRAMFILES(x86)%\Google\Chrome\Application\15.0.874.106\nacl64.exe" />
         </check>
         <install cmd='msiexec /qn /norestart /i "%SOFTWARE%\chrome\GoogleChromeStandaloneEnterprise.msi"' />
         <upgrade cmd='msiexec /qn /norestart /i "%SOFTWARE%\chrome\GoogleChromeStandaloneEnterprise.msi"' />
