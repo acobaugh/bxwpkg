@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packages>
+<package 
+	id="openafs"
+	name="OpenAFS"
+	revision="%version%-1"
+	reboot="false"
+	priority="10">
+ 
+	<variable name="version" value="1.7.1" />
+ 
+	<check type="uninstall" condition="exists" path="OpenAFS for Windows (64-bit)" architecture="x64"/>
+	<check type="uninstall" condition="exists" path="OpenAFS for Windows (32-bit binaries)" architecture="x64"/>
+
+	<depends package-id="netidmgr" />
+	<depends package-id="heimdal" />
+
+	<install cmd='msiexec /qn /i "%SOFTWARE%\afs_integrated\openafs\openafs-%version%-64bit-BXIntegrated.msi"' architecture="x64" />
+	<install cmd='msiexec /qn /i "%SOFTWARE%\afs_integrated\openafs\openafs-%version%-64bit-tools-BXIntegrated.msi"' architecture="x64" />
+
+	<upgrade cmd='msiexec /qn /i "%SOFTWARE%\afs_integrated\openafs\openafs-%version%-64bit-BXIntegrated.msi"' architecture="x64" />
+	<upgrade cmd='msiexec /qn /i "%SOFTWARE%\afs_integrated\openafs\openafs-%version%-64bit-tools-BXIntegrated.msi"' architecture="x64" />
+ 
+</package>
+</packages>
