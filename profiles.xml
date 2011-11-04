@@ -12,6 +12,7 @@
 		<package package-id="R" />
 		<package package-id="mendeley" />
 		<package package-id="adobereader" />
+		<package package-id="office2010" />
 	</profile>
 	<profile id="ritchie_lab">
 		<package package-id="firefox" />
