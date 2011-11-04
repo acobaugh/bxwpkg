@@ -17,7 +17,7 @@
         <check
             type="uninstall"
             condition="exists"
-            path="Java(TM) 7 Update %updatever%"
+            path="Java(TM) 7 Update 1
             />
         <check
             type="uninstall"
