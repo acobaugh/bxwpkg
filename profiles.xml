@@ -14,6 +14,7 @@
 		<package package-id="adobereader" />
 		<package package-id="office2010" />
 		<package package-id="jre32" />
+		<package package-id="jre64" />
 	</profile>
 	<profile id="ritchie_lab">
 		<package package-id="firefox" />
