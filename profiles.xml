@@ -1,2 +1,28 @@
 <profiles>
+	<profile id="test">
+		<package package-id="heimdal" />
+		<package package-id="netidmgr" />
+		<package package-id="chrome" />
+		<package package-id="putty" />
+		<package package-id="firefox" />
+		<package package-id="thunderbird" />
+		<package package-id="flashplayer_mozilla" />
+		<package package-id="flashplayer_ie" />
+		<package package-id="7zip" />
+		<package package-id="R" />
+		<package package-id="mendeley" />
+		<package package-id="ssh" />
+		<package package-id="adobereader" />
+	</profile>
+	<profile id="ritchie_lab">
+		<package package-id="firefox" />
+		<package package-id="heimdal" />
+		<package package-id="netidmgr" />
+		<package package-id="chrome" />
+		<package package-id="putty" />
+		<package package-id="firefox" />
+		<package package-id="thunderbird" />
+		<package package-id="flashplayer_mozilla" />
+		<package package-id="flashplayer_ie" />
+	</profile>
 </profiles>
