@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packages>
+<package 
+	id="ssh"
+	name="SSH Secure Shell"
+	revision="3.2.9"
+	reboot="false"
+	priority="10">
+ 
+	<check type="uninstall" condition="exists" path="SSH Secure Shell" />
+ 
+	<install cmd='%SOFTWARE%\ssh\Disk1\Setup.exe /s /f1%SOFTWARE%\ssh\Disk1\setup.iss' />
+	<upgrade cmd='%SOFTWARE%\ssh\Disk1\Setup.exe /s /f1%SOFTWARE%\ssh\Disk1\setup.iss' />
+ 
+</package>
+</packages>
