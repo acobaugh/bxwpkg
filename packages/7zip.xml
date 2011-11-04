@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packages>
+<package
+	id="7zip"
+	name="7-Zip"
+	revision="920"
+	reboot="false"
+	priority="0">
+
+
+	<check type="uninstall" condition="exists" path="7-Zip 9.20" />
+	 
+	<install cmd='msiexec /qn /norestart /i %SOFTWARE%\7zip\7z920-x64.msi' architecture="x64"/>
+	 
+	<upgrade cmd='msiexec /qn /norestart /i %SOFTWARE%\7zip\7z920-x64.msi' architecture="x64"/>
+	
+	<remove cmd='msiexec /x "%SOFTWARE%\7zip\7z465-x64.msi" /qn' architecture="x64"/> 
+ 
+</package>
+</packages>
