@@ -69,4 +69,4 @@
     <remove cmd='msiexec /qn /x {26A24AE4-039D-4CA4-87B4-2F832170%updatever%FF}' />
  
 </package>
-
+</packages>
