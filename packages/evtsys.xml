@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packages>
+<package 
+	id="evtsys"
+	name="Event Log to Syslog translator"
+	revision="4.4.1-1"
+	reboot="false"
+	priority="10">
+	<!--
+	<install cmd="copy evtsys.exe and evtsys.dll to c:\Windows\system32" />
+	<install cmd="c:\windows\system32\evtsys.exe -i -h 128.118.200.2" />
+	<install cmd="net start evtsys" />
+	-->
+</package>
+</packages>
