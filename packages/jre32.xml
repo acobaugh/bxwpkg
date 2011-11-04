@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<packages>
+<!-- jre install with the msi ; for 32-bit and 64-bit hosts -->
+<package
+    id="jre32"
+    name="Java(TM) 7"
+    revision="%version%"
+    reboot="false"
+    priority="178"
+    >
+    <variable name="updatever" value="01" />
+    <variable name="version" value="7.0.1-1" />
+    <variable name="autoupdate" value="0" />
+ 
+    <check type="logical" condition="or">
+        <check
+            type="uninstall"
+            condition="exists"
+            path="Java(TM) 7 Update %updatever%"
+            />
+        <check
+            type="uninstall"
+            condition="exists"
+            path="Java(TM) 7"
+            />
+    </check>
+ 
+    <install cmd='taskkill /f /im jqs.exe /im iexplore.exe /im firefox.exe'>
+      <exit code='0' />
+      <exit code='1' />
+      <exit code='128' />
+    </install>
+    <install
+        cmd='msiexec /qn /i %SOFTWARE%\java\\jre-7-u%updatever%\jre1.7.0_%updatever%.msi REBOOT=Suppress IEXPLORER=1 MOZILLA=1 JAVAUPDATE=%autoupdate% CUSTOM=1'
+        />
+    <!-- remove Java Quick Starter -->
+    <install cmd='%COMSPEC% /C if exist "%PROGRAMFILES%\Java\jre7\bin\jqs.exe" "%PROGRAMFILES%\Java\jre7\bin\jqs.exe" -unregister'>
+      <exit code='1' />
+    </install>
+    <install cmd='%COMSPEC% /C if exist "%PROGRAMFILES(x86)%\Java\jre7\bin\jqs.exe" "%PROGRAMFILES(x86)%\Java\jre7\bin\jqs.exe" -unregister'>
+      <exit code='1' />
+    </install>
+    <!-- Remove Java Auto Updater software -->
+    <install cmd='msiexec /qn /x {4A03706F-666A-4037-7777-5F2748764D10}'>
+      <exit code='any' />
+    </install>
+ 
+    <upgrade cmd='taskkill /f /im jqs.exe /im iexplore.exe /im firefox.exe'>
+      <exit code='0' />
+      <exit code='1' />
+      <exit code='128' />
+    </upgrade>
+    <upgrade
+        cmd='msiexec /qn /i %SOFTWARE%\java\jre-7-u%updatever%\jre1.7.0_%updatever%.msi REBOOT=Suppress IEXPLORER=1 MOZILLA=1 JAVAUPDATE=%autoupdate% CUSTOM=1'
+        />
+    <!-- remove Java Quick Starter -->
+    <upgrade cmd='%COMSPEC% /C if exist "%PROGRAMFILES%\Java\jre7\bin\jqs.exe" "%PROGRAMFILES%\Java\jre7\bin\jqs.exe" -unregister'>
+      <exit code='1' />
+    </upgrade>
+    <upgrade cmd='%COMSPEC% /C if exist "%PROGRAMFILES(x86)%\Java\jre7\bin\jqs.exe" "%PROGRAMFILES(x86)%\Java\jre7\bin\jqs.exe" -unregister'>
+      <exit code='1' />
+    </upgrade>
+    <!-- Remove Java Auto Updater software -->
+    <upgrade cmd='msiexec /qn /x {4A03706F-666A-4037-7777-5F2748764D10}'>
+      <exit code='any' />
+    </upgrade>
+ 
+    <remove cmd='msiexec /qn /x {26A24AE4-039D-4CA4-87B4-2F832170%updatever%FF}' />
+ 
+</package>
+
