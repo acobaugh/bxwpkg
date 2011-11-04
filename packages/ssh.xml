@@ -9,8 +9,8 @@
  
 	<check type="uninstall" condition="exists" path="SSH Secure Shell" />
  
-	<install cmd='%SOFTWARE%\ssh\Disk1\Setup.exe /s /f1%SOFTWARE%\ssh\Disk1\setup.iss' />
-	<upgrade cmd='%SOFTWARE%\ssh\Disk1\Setup.exe /s /f1%SOFTWARE%\ssh\Disk1\setup.iss' />
+	<install cmd='%SOFTWARE%\ssh\Disk1\Setup.exe -s -f1%SOFTWARE%\ssh\Disk1\setup.iss' />
+	<upgrade cmd='%SOFTWARE%\ssh\Disk1\Setup.exe -s -f1%SOFTWARE%\ssh\Disk1\setup.iss' />
  
 </package>
 </packages>
