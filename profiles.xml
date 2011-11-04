@@ -11,7 +11,6 @@
 		<package package-id="7zip" />
 		<package package-id="R" />
 		<package package-id="mendeley" />
-		<package package-id="ssh" />
 		<package package-id="adobereader" />
 	</profile>
 	<profile id="ritchie_lab">
