@@ -17,6 +17,7 @@
 		<package package-id="jre64" />
 		<package package-id="opera" />
 		<package package-id="safari" />
+		<package package-id="itunes" />
 	</profile>
 	<profile id="ritchie_lab">
 		<package package-id="firefox" />
