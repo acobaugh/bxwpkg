@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package id='appleapplicationsupport' name='Apple Application Support' revision='%PKGVER%' reboot='false' priority='10'>
+	<variable name='ITUNESVER' value='10.5.0.142' />
+	<variable name='PKGVER' value='2.1.5' />
+ 
+	<check type='uninstall' condition='versiongreaterorequal' path='Apple Application Support' value='%PKGVER%'/>
+ 
+	<install cmd='msiexec /i "%SOFTWARE%\itunes\itunes-%ITUNESVER%-64bit\AppleApplicationSupport.msi" /passive /norestart' timeout='300' architecture="x64">
+		<exit code='0' />
+		<exit code='3010' reboot='postponed' />
+	</install>
+ 
+	<upgrade cmd='msiexec /i "%SOFTWARE%\itunes\itunes-%ITUNESVER%-64bit\AppleApplicationSupport.msi" /passive /norestart' timeout='300'>
+		<exit code='0' />
+		<exit code='3010' reboot='postponed' />
+	</upgrade>
+ 
+	<remove cmd='msiexec /x{A83279FD-CA4B-4206-9535-90974DE76654} /passive /norestart' timeout='300'>
+		<exit code='0' />
+		<exit code='1605' />
+		<exit code='3010' reboot='postponed' />
+	</remove>
+</package>
+ 
+<package id='applemobilesupport' name='Apple Mobile Device Support' revision='%PKGVER%' reboot='false' priority='10'>
+	<variable name='ITUNESVER' value='10.5.0.142' />
+	<variable name='PKGVER' value='4.0.0.96' />
+ 
+	<check type='uninstall' condition='versiongreaterorequal' path='Apple Mobile Device Support' value='%PKGVER%' />
+ 
+	<install cmd='msiexec /i "%SOFTWARE%\itunes\itunes-%ITUNESVER%-64bit\AppleMobileDeviceSupport64.msi" /passive /norestart' timeout='300' architecture="x64">
+		<exit code='0' />
+		<exit code='3010' reboot='postponed' />
+	</install>
+ 
+	<upgrade cmd='msiexec /i "%SOFTWARE%\itunes\itunes-%ITUNESVER%-64bit\AppleMobileDeviceSupport64.msi" /passive /norestart' timeout='300' architecture="x64">
+		<exit code='0' />
+		<exit code='3010' reboot='postponed' />
+	</upgrade>
+ 
+	<remove cmd='msiexec /x{A00B9A50-3090-4CFF-9CDA-82DA0BEDAA21} /passive /norestart' timeout='300'>		
+		<exit code='0' />
+		<exit code='1605' />
+		<exit code='3010' reboot='postponed' />
+	</remove>
+</package>
+ 
+<package id='itunes' name='Apple iTunes' revision='%PKGVER%' reboot='false' priority='9'>
+	<variable name='ITUNESVER' value='10.5.0.142' />
+	<variable name='PKGVER' value='10.5.0.142' />
+	<depends package-id='appleapplication' />
+ 
+	<check type='uninstall' condition='versiongreaterorequal' path='iTunes' value='%PKGVER%' />
+	<!-- Check if automatic updates have been disabled (value: 256) and settings have been locked (value: 1) -->
+	<check type='registry' condition='equals' path='HKLM\SOFTWARE\Apple Computer, Inc.\iTunes\Parental Controls\Default\AdminFlags' value='257' />
+ 
+	<install cmd='msiexec.exe /i "%SOFTWARE%\itunes\itunes-%ITUNESVER%-64bit\iTunes64.msi" SCHEDULE_ASUW=0 /passive' timeout='300' architecture="x64">
+		<exit code='0' />
+		<exit code='3010' reboot='postponed' />
+	</install>
+	<!-- Disable automatic update of ITunes via parental controls and lock the settings, see below for more info -->
+	<install cmd='reg add "HKLM\SOFTWARE\Apple Computer, Inc.\iTunes\Parental Controls\Default" /v "AdminFlags" /t REG_DWORD /d "0x101" /f' timeout='60' />
+ 
+	<upgrade cmd='msiexec.exe /i "%SOFTWARE%\itunes\itunes-%ITUNESVER%-64bit\iTunes64.msi" SCHEDULE_ASUW=0 /passive' timeout='300'>
+		<exit code='0' />
+		<exit code='3010' reboot='postponed' />
+	</upgrade>
+	<upgrade cmd='reg add "HKLM\SOFTWARE\Apple Computer, Inc.\iTunes\Parental Controls\Default" /v "AdminFlags" /t REG_DWORD /d "0x101" /f' timeout='60' />
+ 
+	<remove cmd='msiexec.exe /x{29ED20C9-5E15-4969-9279-25BF3727A3DA} /passive /norestart' timeout='300'>
+		<exit code='0' />
+		<exit code='1605' />
+		<exit code='3010' reboot='postponed' />
+	</remove>
+</package>
