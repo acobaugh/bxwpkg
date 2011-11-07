@@ -1,8 +1,8 @@
 <packages>
     <package id='safari' name='Safari' revision='5.1.1' priority='100' reboot='false' >
       <check type='file' condition='versiongreaterorequal' path='%PROGRAMFILES%\Safari\Safari.exe' value='5.34.51.22' />
-      <install cmd='"%SOFTWARE%\packages\safari\SafariSetup-5.1.1.exe" /qn' />
-      <upgrade cmd='"%SOFTWARE%\packages\safari\SafariSetup-5.1.1.exe" /qn' />
+      <install cmd='"%SOFTWARE%\safari\SafariSetup-5.1.1.exe" /qn' />
+      <upgrade cmd='"%SOFTWARE%\safari\SafariSetup-5.1.1.exe" /qn' />
       <remove cmd='MsiExec.exe /X{3763A2B4-B07A-4E4D-994D-7D2C6AF0CF9E} /QN' />
     </package>
 </packages>
