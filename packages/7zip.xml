@@ -8,15 +8,14 @@
 	priority="0">
 
 
-	<check type="uninstall" condition="exists" path="7-Zip 9.20" />
-	
-	<check type="uninstall" condition="exists" path="7-Zip 9.20 (x64 edition)" architecture="x64"/>
+	<check type="uninstall" condition="exists" path="7-Zip 9.20" architecture="x86" />
+	<check type="uninstall" condition="exists" path="7-Zip 9.20 (x64 edition)" architecture="x64" />
 	 
-	<install cmd='msiexec /qn /norestart /i %SOFTWARE%\7zip\7z920-x64.msi' architecture="x64"/>
+	<install cmd='msiexec /qn /norestart /i %SOFTWARE%\7zip\7z920-x64.msi' architecture="x64" />
 	 
-	<upgrade cmd='msiexec /qn /norestart /i %SOFTWARE%\7zip\7z920-x64.msi' architecture="x64"/>
+	<upgrade cmd='msiexec /qn /norestart /i %SOFTWARE%\7zip\7z920-x64.msi' architecture="x64" />
 	
-	<remove cmd='msiexec /x "%SOFTWARE%\7zip\7z465-x64.msi" /qn' architecture="x64"/> 
+	<remove cmd='msiexec /x "%SOFTWARE%\7zip\7z465-x64.msi" /qn' architecture="x64" /> 
  
 </package>
 </packages>
