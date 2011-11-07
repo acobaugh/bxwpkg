@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packages>
+  <package
+     id="opera"
+     name="Opera"
+     revision="%version%"
+     reboot="false"
+     priority="0">
+    <variable name="version" value="11.52" />
+ 
+    <variable name="filenameversion" value="1152" />
+ 
+    <check type="uninstall" condition="exists" path="Opera %version%" />
+ 
+    <install cmd='%SOFTWARE%\opera\Opera_%filenameversion%_en_Setup.exe /silent /launchopera 0 /desktopshortcut 0 /quicklaunchshortcut 0 /setdefaultbrowser 0 /allusers' />
+ 
+    <upgrade cmd='%SOFTWARE%\opera\Opera_%filenameversion%_en_Setup.exe /silent /launchopera 0 /desktopshortcut 0 /quicklaunchshortcut 0 /setdefaultbrowser 0 /allusers' />
+    <remove cmd='"%PROGRAMFILES%\Opera\Opera.exe" /uninstall /silent' />
+ 
+  </package>
+</packages>
