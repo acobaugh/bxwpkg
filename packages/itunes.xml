@@ -50,7 +50,7 @@
 <package id='itunes' name='Apple iTunes' revision='%PKGVER%' reboot='false' priority='9'>
 	<variable name='ITUNESVER' value='10.5.0.142' />
 	<variable name='PKGVER' value='10.5.0.142' />
-	<depends package-id='appleapplication' />
+	<depends package-id='appleapplicationsupport' />
  
 	<check type='uninstall' condition='versiongreaterorequal' path='iTunes' value='%PKGVER%' />
 	<!-- Check if automatic updates have been disabled (value: 256) and settings have been locked (value: 1) -->
