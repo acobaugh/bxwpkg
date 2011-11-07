@@ -12,6 +12,8 @@
   <check type="uninstall" condition="exists" path="Mozilla Thunderbird (%version%)" />
  
   <install cmd='"%SOFTWARE%\thunderbird\Thunderbird Setup %version%.exe" -ms' />
+	<install cmd='%COMSPEC% /c del /q "%AllUsersProfile%\%Desktop%\Mozilla Thunderbird.lnk"' ><exit code="any" /></install>
+	<install cmd='%COMSPEC% /c del /q "%Public%\%Desktop%\Mozilla Thunderbird.lnk"' ><exit code="any" /></install>
  
   <upgrade cmd='taskkill /F /IM thunderbird.exe'>
     <exit code="0" />
@@ -19,6 +21,9 @@
   </upgrade>
  
   <upgrade cmd='"%SOFTWARE%\thunderbird\Thunderbird Setup %version%.exe" -ms' />
+  
+	<upgrade cmd='%COMSPEC% /c del /q "%AllUsersProfile%\%Desktop%\Mozilla Thunderbird.lnk"' ><exit code="any" /></install>
+	<upgrade cmd='%COMSPEC% /c del /q "%Public%\%Desktop%\Mozilla Thunderbird.lnk"' ><exit code="any" /></install>
  
   <remove cmd='taskkill /F /IM thunderbird.exe'>
     <exit code="0" />
