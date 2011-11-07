@@ -20,6 +20,9 @@
 	</install>
  
 	<install cmd='"%SOFTWARE%\firefox\Firefox Setup %version%.exe" -ms' />
+	
+	<install cmd='%COMSPEC% /c del /q "%AllUsersProfile%\%Desktop%\Mozilla Firefox.lnk"' ><exit code="any" /></install>
+	<install cmd='%COMSPEC% /c del /q "%Public%\%Desktop%\Mozilla Firefox.lnk"' ><exit code="any" /></install>
  
 	<upgrade cmd="taskkill /F /IM Firefox.exe">
 		<exit code="0" />
@@ -28,6 +31,9 @@
 	</upgrade>
  
 	<upgrade cmd='"%SOFTWARE%\firefox\Firefox Setup %version%.exe" -ms' />
+	
+	<upgrade cmd='%COMSPEC% /c del /q "%AllUsersProfile%\%Desktop%\Mozilla Firefox.lnk"' ><exit code="any" /></upgrade>
+	<upgrade cmd='%COMSPEC% /c del /q "%Public%\%Desktop%\Mozilla Firefox.lnk"' ><exit code="any" /></upgrade>
  
 	<remove cmd="taskkill /F /IM Firefox.exe">
 		<exit code="0" />
