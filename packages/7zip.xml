@@ -7,9 +7,10 @@
 	reboot="false"
 	priority="0">
 
-
-	<check type="uninstall" condition="exists" path="7-Zip 9.20" architecture="x86" />
-	<check type="uninstall" condition="exists" path="7-Zip 9.20 (x64 edition)" architecture="x64" />
+	<check type="logical" condition="or">
+		<check type="uninstall" condition="exists" path="7-Zip 9.20" architecture="x86" />
+		<check type="uninstall" condition="exists" path="7-Zip 9.20 (x64 edition)" architecture="x64" />
+	</check>
 	 
 	<install cmd='msiexec /qn /norestart /i %SOFTWARE%\7zip\7z920-x64.msi' architecture="x64" />
 	 
