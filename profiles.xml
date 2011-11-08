@@ -15,7 +15,6 @@
 		<package package-id="office2010" />
 		<package package-id="jre32" />
 		<package package-id="jre64" />
-		<package package-id="opera" />
 		<package package-id="safari" />
 		<package package-id="itunes" />
 		<package package-id="visio2010" />
@@ -30,5 +29,15 @@
 		<package package-id="thunderbird" />
 		<package package-id="flashplayer_mozilla" />
 		<package package-id="flashplayer_ie" />
+		<package package-id="7zip" />
+		<package package-id="R" />
+		<package package-id="mendeley" />
+		<package package-id="adobereader" />
+		<package package-id="office2010" />
+		<package package-id="jre32" />
+		<package package-id="jre64" />
+		<package package-id="safari" />
+		<package package-id="itunes" />
+		<package package-id="visio2010" />
 	</profile>
 </profiles>
