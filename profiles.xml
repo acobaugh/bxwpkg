@@ -21,6 +21,7 @@
 		<package package-id="evtsys" />
 	</profile>
 	<profile id="ritchie_lab">
+		<package package-id="evtsys" />
 		<package package-id="firefox" />
 		<package package-id="heimdal" />
 		<package package-id="netidmgr" />
