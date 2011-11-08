@@ -11,7 +11,7 @@ reboot="false">
 	 
 	<install cmd="%SOFTWARE%\mendeley\Mendeley-Desktop-1.1.3-win32.exe /S"/>
 	<install cmd="%COMSPEC% /c del '%ALLUSERSPROFILE%\Desktop\Mendeley Desktop.lnk' /q"/>
-	<install cmd='%COMSPEC% /c del /q "%Public%\%Desktop%\Mendeley Desktop.lnk"' ><exit code="any" /></install> <!-- Vista/Windows7 -->
+	<install cmd='%COMSPEC% /c del /q "%Public%\Desktop\Mendeley Desktop.lnk"' ><exit code="any" /></install> <!-- Vista/Windows7 -->
 
 	<remove cmd="'%PROGRAMFILES%\Mendeley Desktop\Uninstaller.exe' /S"/>
  

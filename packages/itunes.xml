@@ -63,7 +63,7 @@
 	<!-- Disable automatic update of ITunes via parental controls and lock the settings, see below for more info -->
 	<install cmd='reg add "HKLM\SOFTWARE\Apple Computer, Inc.\iTunes\Parental Controls\Default" /v "AdminFlags" /t REG_DWORD /d "0x101" /f' timeout='60' />
 	<install cmd='%COMSPEC% /c del /q "%AllUsersProfile%\%Desktop%\iTunes.lnk"' ><exit code="any" /></install>
-	<install cmd='%COMSPEC% /c del /q "%Public%\%Desktop%\iTunes.lnk"' ><exit code="any" /></install>
+	<install cmd='%COMSPEC% /c del /q "%Public%\Desktop\iTunes.lnk"' ><exit code="any" /></install>
 
 	<upgrade cmd='msiexec.exe /i "%SOFTWARE%\itunes\itunes-%ITUNESVER%-64bit\iTunes64.msi" SCHEDULE_ASUW=0 /passive' timeout='300'>
 		<exit code='0' />
