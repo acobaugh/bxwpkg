@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <packages>
-<package id="R" name="R" revision="2.14.0-1" priority="0" reboot="false">
+<package id="R" name="R" revision="2.14.0-3" priority="0" reboot="false">
 	<check type="uninstall" condition="exists" path="R for Windows 2.14.0" />
 
-	<variable name="components" value="main,i386,x64,tcl/noarch,tcl/32,tcl/64,tcl/chm,tcl/msg,tcl/tzdata,tests,manuals,manuals/basic,manuals/libdocs,manuals/refman,manuals/technical,trans" />
+	<variable name="components32" value="main,i386,x64,tcl/noarch,tcl/32,tcl/64,tcl/chm,tcl/msg,tcl/tzdata,tests,manuals,manuals/basic,manuals/libdocs,manuals/refman,manuals/technical,trans" />
+	<variable name="components64" value="x64,tcl/64" architecture="x64" />
+	<variable name="components" value="%components32%,%components64%" />
 
 	<!--<install cmd='"%PROGRAMFILES%\R\R-2.9.1\unins000.exe" /verysilent' ><exit code="any" /></install>-->
 	<install cmd='%SOFTWARE%\R\R-2.14.0-win.exe /verysilent /components="%components%"' />
+	<install cmd='%COMSPEC% /c del /q "%AllUsersProfile%\%Desktop%\R 2.14.0.lnk"' ><exit code="any" /></install>
+	<install cmd='%COMSPEC% /c del /q "%AllUsersProfile%\%Desktop%\R x64 2.14.0.lnk"' ><exit code="any" /></install>
+	<install cmd='%COMSPEC% /c del /q "%Public%\%Desktop%\R 2.14.0.lnk"' ><exit code="any" /></install>
+	<install cmd='%COMSPEC% /c del /q "%Public%\%Desktop%\R x64 2.14.0.lnk"' ><exit code="any" /></install>
 	      
 	<!--<upgrade cmd='"%PROGRAMFILES%\R\R-2.9.1\unins000.exe" /verysilent' ><exit code="any" /></upgrade>-->
 	<upgrade cmd='%SOFTWARE%\R\R-2.14.0-win.exe /verysilent /components="%components%"' />
+	<upgrade cmd='%COMSPEC% /c del /q "%AllUsersProfile%\%Desktop%\R 2.14.0.lnk"' ><exit code="any" /></upgrade>
+	<upgrade cmd='%COMSPEC% /c del /q "%AllUsersProfile%\%Desktop%\R x64 2.14.0.lnk"' ><exit code="any" /></upgrade>
+	<upgrade cmd='%COMSPEC% /c del /q "%Public%\%Desktop%\R 2.14.0.lnk"' ><exit code="any" /></upgrade>
+	<upgrade cmd='%COMSPEC% /c del /q "%Public%\%Desktop%\R x64 2.14.0.lnk"' ><exit code="any" /></upgrade>
 
 	<!--<remove cmd='"%PROGRAMFILES%\R\R-2.9.2\unins000.exe" /verysilent' />-->
 </package>
