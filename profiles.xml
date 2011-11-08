@@ -18,6 +18,7 @@
 		<package package-id="safari" />
 		<package package-id="itunes" />
 		<package package-id="visio2010" />
+		<package package-id="evtsys" />
 	</profile>
 	<profile id="ritchie_lab">
 		<package package-id="firefox" />
