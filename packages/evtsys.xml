@@ -3,13 +3,47 @@
 <package 
 	id="evtsys"
 	name="Event Log to Syslog translator"
-	revision="4.4.1-1"
+	revision="%version%-1"
 	reboot="false"
 	priority="10">
-	<!--
-	<install cmd="copy evtsys.exe and evtsys.dll to c:\Windows\system32" />
-	<install cmd="c:\windows\system32\evtsys.exe -i -h 128.118.200.2" />
-	<install cmd="net start evtsys" />
-	-->
+
+	<variable name='version' value='4.4.1' />
+	<variable name='host' value='128.118.200.2' />
+
+	<check type='file' condition='exists' path='%WINDIR%\system32\evtsys.dll' />
+	<check type='file' condition='exists' path='%WINDIR%\system32\evtsys.exe' />
+
+	<!-- INSTALL -->
+	<install cmd="%COMSPEC% /c copy /y %SOFTWARE%\evtsys\evtsys-%version%\64\evtsys.exe %WINDIR%\system32\evtsys.exe" architecture="x64" />
+	<install cmd="%COMSPEC% /c copy /y %SOFTWARE%\evtsys\evtsys-%version%\64\evtsys.exe %WINDIR%\system32\evtsys.dll" architecture="x64" />
+	
+	<install cmd="%COMSPEC% /c copy /y %SOFTWARE%\evtsys\evtsys-%version%\32\evtsys.exe %WINDIR%\system32\evtsys.exe" architecture="x86" />
+	<install cmd="%COMSPEC% /c copy /y %SOFTWARE%\evtsys\evtsys-%version%\32\evtsys.exe %WINDIR%\system32\evtsys.dll" architecture="x86" />
+	
+	<install cmd="%WINDIR%\system32\evtsys.exe -i %host%" ><exit code='any' /></install>
+	<install cmd="net start evtsys"><exit code='any' /></install>
+
+	<!-- UPGRADE -->
+	<upgrade cmd="net stop evtsys"><exit code='any' /></upgrade>
+	<upgrade cmd="%WINDIR%\system32\evtsys.exe -u" ><exit code='any' /></upgrade>
+	
+	<upgrade cmd="%COMSPEC% /c del /q /f %WINDIR%\system32\evtsys.exe" />
+	<upgrade cmd="%COMSPEC% /c del /q /f %WINDIR%\system32\evtsys.dll" />
+	
+	<upgrade cmd="%COMSPEC% /c copy /y %SOFTWARE%\evtsys\evtsys-%version%\64\evtsys.exe %WINDIR%\system32\evtsys.exe" architecture="x64" />
+	<upgrade cmd="%COMSPEC% /c copy /y %SOFTWARE%\evtsys\evtsys-%version%\64\evtsys.exe %WINDIR%\system32\evtsys.dll" architecture="x64" />
+	
+	<upgrade cmd="%COMSPEC% /c copy /y %SOFTWARE%\evtsys\evtsys-%version%\32\evtsys.exe %WINDIR%\system32\evtsys.exe" architecture="x86" />
+	<upgrade cmd="%COMSPEC% /c copy /y %SOFTWARE%\evtsys\evtsys-%version%\32\evtsys.exe %WINDIR%\system32\evtsys.dll" architecture="x86" />
+	
+	<upgrade cmd="%WINDIR%\system32\evtsys.exe -i %host%" ><exit code='any' /></upgrade>
+	<upgrade cmd="net start evtsys"><exit code='any' /></upgrade>
+
+	<!-- REMOVE -->
+	<remove cmd="net stop evtsys"><exit code='any' /></remove>
+	<remove cmd="%WINDIR%\system32\evtsys.exe -u" ><exit code='any' /></remove>
+	
+	<remove cmd="%COMSPEC% /c del /q /f %WINDIR%\system32\evtsys.exe" />
+	<remove cmd="%COMSPEC% /c del /q /f %WINDIR%\system32\evtsys.dll" />
 </package>
 </packages>
