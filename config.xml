@@ -309,9 +309,9 @@
 		* Command-line switch: /noforcedremove
 		****************************************************************************
 	-->
-	<!--
-		<param name='noForcedRemove' value='false' />
-	-->
+	
+		<param name='noForcedRemove' value='true' />
+	
 
 
 	<!--
