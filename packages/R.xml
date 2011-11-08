@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <packages>
-<package id="R" name="R" revision="2.14.0" priority="0" reboot="false">
+<package id="R" name="R" revision="2.14.0-1" priority="0" reboot="false">
 	<check type="uninstall" condition="exists" path="R for Windows 2.14.0" />
+
+	<variable name="components" value="main,i386,x64,tcl/noarch,tcl/32,tcl/64,tcl/chm,tcl/msg,tcl/tzdata,tests,manuals,manuals/basic,manuals/libdocs,manuals/refman,manuals/technical,trans" />
+
 	<!--<install cmd='"%PROGRAMFILES%\R\R-2.9.1\unins000.exe" /verysilent' ><exit code="any" /></install>-->
-	<install cmd='%SOFTWARE%\R\R-2.14.0-win.exe /verysilent /components="main,chtml,html,html/help,latex,manuals,manuals/basic,manuals/technical,manuals/refman,libdocs,devel,tcl,tcl/chm,Rd,trans"' />
+	<install cmd='%SOFTWARE%\R\R-2.14.0-win.exe /verysilent /components="%components%"' />
 	      
 	<!--<upgrade cmd='"%PROGRAMFILES%\R\R-2.9.1\unins000.exe" /verysilent' ><exit code="any" /></upgrade>-->
-	<upgrade cmd='%SOFTWARE%\R-2.14.0-win.exe /verysilent /components="main,chtml,html,html/help,latex,manuals,manuals/basic,manuals/technical,manuals/refman,libdocs,devel,tcl,tcl/chm,Rd,trans"' />
+	<upgrade cmd='%SOFTWARE%\R-2.14.0-win.exe /verysilent /components="%components%"' />
 
 	<!--<remove cmd='"%PROGRAMFILES%\R\R-2.9.2\unins000.exe" /verysilent' />-->
 </package>
