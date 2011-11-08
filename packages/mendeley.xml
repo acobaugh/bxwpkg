@@ -3,7 +3,7 @@
 <package 
 id="mendeley" 
 name="Mendeley Desktop" 
-revision="1.1.3" 
+revision="1.1.3-1" 
 priority="5" 
 reboot="false">
 	 
