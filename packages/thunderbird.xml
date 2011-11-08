@@ -22,8 +22,8 @@
  
   <upgrade cmd='"%SOFTWARE%\thunderbird\Thunderbird Setup %version%.exe" -ms' />
   
-	<upgrade cmd='%COMSPEC% /c del /q "%AllUsersProfile%\%Desktop%\Mozilla Thunderbird.lnk"' ><exit code="any" /></install>
-	<upgrade cmd='%COMSPEC% /c del /q "%Public%\%Desktop%\Mozilla Thunderbird.lnk"' ><exit code="any" /></install>
+	<upgrade cmd='%COMSPEC% /c del /q "%AllUsersProfile%\%Desktop%\Mozilla Thunderbird.lnk"' ><exit code="any" /></upgrade>
+	<upgrade cmd='%COMSPEC% /c del /q "%Public%\%Desktop%\Mozilla Thunderbird.lnk"' ><exit code="any" /></upgrade>
  
   <remove cmd='taskkill /F /IM thunderbird.exe'>
     <exit code="0" />
