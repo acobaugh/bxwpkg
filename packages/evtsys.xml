@@ -20,7 +20,7 @@
 	<install cmd="%COMSPEC% /c copy /y %SOFTWARE%\evtsys\evtsys-%version%\32\evtsys.exe %WINDIR%\system32\evtsys.exe" architecture="x86" />
 	<install cmd="%COMSPEC% /c copy /y %SOFTWARE%\evtsys\evtsys-%version%\32\evtsys.exe %WINDIR%\system32\evtsys.dll" architecture="x86" />
 	
-	<install cmd="%WINDIR%\system32\evtsys.exe -i %host%" ><exit code='any' /></install>
+	<install cmd="%WINDIR%\system32\evtsys.exe -i -h %host%" ><exit code='any' /></install>
 	<install cmd="net start evtsys"><exit code='any' /></install>
 
 	<!-- UPGRADE -->
@@ -36,7 +36,7 @@
 	<upgrade cmd="%COMSPEC% /c copy /y %SOFTWARE%\evtsys\evtsys-%version%\32\evtsys.exe %WINDIR%\system32\evtsys.exe" architecture="x86" />
 	<upgrade cmd="%COMSPEC% /c copy /y %SOFTWARE%\evtsys\evtsys-%version%\32\evtsys.exe %WINDIR%\system32\evtsys.dll" architecture="x86" />
 	
-	<upgrade cmd="%WINDIR%\system32\evtsys.exe -i %host%" ><exit code='any' /></upgrade>
+	<upgrade cmd="%WINDIR%\system32\evtsys.exe -i -h %host%" ><exit code='any' /></upgrade>
 	<upgrade cmd="net start evtsys"><exit code='any' /></upgrade>
 
 	<!-- REMOVE -->
