@@ -3,7 +3,7 @@
 <package 
 	id="evtsys"
 	name="Event Log to Syslog translator"
-	revision="%version%-1"
+	revision="%version%-2"
 	reboot="false"
 	priority="10">
 
