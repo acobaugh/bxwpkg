@@ -17,7 +17,7 @@
     <upgrade cmd='%SOFTWARE%\opera\Opera_%filenameversion%_en_Setup.exe /silent /launchopera 0 /desktopshortcut 0 /quicklaunchshortcut 0 /setdefaultbrowser 0 /allusers' />
     
     <remove cmd='"%PROGRAMFILES%\Opera\Opera.exe" /uninstall /silent' architecture='x86' />
-    <remove cmd='"%PROGRAMFILES%\Opera\Opera.exe" /uninstall /silent' architecture='x64' />
+    <remove cmd='"%PROGRAMFILES(X86)%\Opera\Opera.exe" /uninstall /silent' architecture='x64' />
  
   </package>
 </packages>
