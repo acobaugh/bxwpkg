@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <packages>
-<package id="R" name="R" revision="2.14.0-4" priority="0" reboot="false">
+<package id="R" name="R" revision="2.14.0-5" priority="0" reboot="false">
 	<check type="uninstall" condition="exists" path="R for Windows 2.14.0" />
 
 	<variable name="components32" value="main,i386,tcl/noarch,tcl/32,tcl/chm,tcl/msg,tcl/tzdata,tests,manuals,manuals/basic,manuals/libdocs,manuals/refman,manuals/technical,trans" />
