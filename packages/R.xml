@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <packages>
-<package id="R" name="R" revision="2.14.0-5" priority="0" reboot="false">
+<package id="R" name="R" revision="2.14.0-6" priority="0" reboot="false">
 	<check type="uninstall" condition="exists" path="R for Windows 2.14.0" />
 
-	<variable name="components32" value="main,i386,tcl/noarch,tcl/32,tcl/chm,tcl/msg,tcl/tzdata,tests,manuals,manuals/basic,manuals/libdocs,manuals/refman,manuals/technical,trans" />
 	<variable name="components64" value="x64,tcl/64" architecture="x64" />
-	<variable name="components" value="%components32%,%components64%" />
+	<variable name="components" value="main,i386,tcl/noarch,tcl/32,tcl/chm,tcl/msg,tcl/tzdata,tests,manuals,manuals/basic,manuals/libdocs,manuals/refman,manuals/technical,trans,%components64%" />
 
 	<!--<install cmd='"%PROGRAMFILES%\R\R-2.9.1\unins000.exe" /verysilent' ><exit code="any" /></install>-->
 	<install cmd='%SOFTWARE%\R\R-2.14.0-win.exe /verysilent /components="%components%"' />
