@@ -3,17 +3,23 @@
 <package 
 id="mendeley" 
 name="Mendeley Desktop" 
-revision="1.1.3-1" 
+revision="1.1.3-2" 
 priority="5" 
 reboot="false">
 	 
 	<check type="uninstall" condition="exists" path="Mendeley Desktop 1.1.3"/>
 	 
-	<install cmd="%SOFTWARE%\mendeley\Mendeley-Desktop-1.1.3-win32.exe /S"/>
+	<install cmd="%SOFTWARE%\mendeley\Mendeley-Desktop-1.1.3-win32.exe /S" >
+		<exit code="0" />
+		<exit code="1223" />
+	</install>
 	<install cmd="%COMSPEC% /c del '%ALLUSERSPROFILE%\Desktop\Mendeley Desktop.lnk' /q" ><exit code="any" /></install>
 	<install cmd='%COMSPEC% /c del /q "%Public%\Desktop\Mendeley Desktop.lnk"' ><exit code="any" /></install> <!-- Vista/Windows7 -->
 	
-	<upgrade cmd="%SOFTWARE%\mendeley\Mendeley-Desktop-1.1.3-win32.exe /S"/>
+	<upgrade cmd="%SOFTWARE%\mendeley\Mendeley-Desktop-1.1.3-win32.exe /S">
+		<exit code="0" />
+		<exit code="1223" />
+	</upgrade>
 	<upgrade cmd="%COMSPEC% /c del '%ALLUSERSPROFILE%\Desktop\Mendeley Desktop.lnk' /q" ><exit code="any" /></upgrade>
 	<upgrade cmd='%COMSPEC% /c del /q "%Public%\Desktop\Mendeley Desktop.lnk"' ><exit code="any" /></upgrade> <!-- Vista/Windows7 -->
 
