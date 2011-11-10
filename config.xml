@@ -310,7 +310,7 @@
 		****************************************************************************
 	-->
 	
-		<param name='noForcedRemove' value='true' />
+	<!-- <param name='noForcedRemove' value='true' /> -->
 	
 
 
