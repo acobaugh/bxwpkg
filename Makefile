@@ -10,5 +10,5 @@ prod-git-pull:
 prod: prod-git-pull 
 
 release:
-	afs-control release /afs/.bx.psu.edu/service/wpkg/prod
+	afs-control release /afs/.bx.psu.edu/service/wpkg
 
