@@ -30,18 +30,18 @@
 
 	<!-- INSTALL -->
 	<install cmd='msiexec /qn /i "%SOFTWARE%\skype\SkypeSetup.msi"' /> 
-	<install cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableVersionCheckPolicy" /d "1" /t REG_DWORD /f' />
-	<install cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableSupernodePolicy" /d "1" /t REG_DWORD /f' />
-	<install cmd='%COMSPEC% /C reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "Skype" /f' />
+	<install cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableVersionCheckPolicy" /d "1" /t REG_DWORD /f'><exit code="any" /></install>
+	<install cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableSupernodePolicy" /d "1" /t REG_DWORD /f'><exit code="any" /></install>
+	<install cmd='%COMSPEC% /C reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "Skype" /f'><exit code="any" /></install>
 	<install cmd='%COMSPEC% /c del /q "%AllUsersProfile%\%Desktop%\Skype.lnk"' ><exit code="any" /></install>
 	<install cmd='%COMSPEC% /c del /q "%Public%\Desktop\Skype.lnk"' ><exit code="any" /></install>
 
 
 	<!-- UPGRADE -->
 	<upgrade cmd='msiexec /qn /i "%SOFTWARE%\skype\SkypeSetup.msi"' /> 
-	<upgrade cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableVersionCheckPolicy" /d "1" /t REG_DWORD /f' />
-	<upgrade cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableSupernodePolicy" /d "1" /t REG_DWORD /f' />
-	<upgrade cmd='%COMSPEC% /C reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "Skype" /f' />
+	<upgrade cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableVersionCheckPolicy" /d "1" /t REG_DWORD /f'><exit code="any" /></upgrade>
+	<upgrade cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableSupernodePolicy" /d "1" /t REG_DWORD /f'><exit code="any" /></upgrade>
+	<upgrade cmd='%COMSPEC% /C reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "Skype" /f'><exit code="any" /></upgrade>
 	<upgrade cmd='%COMSPEC% /c del /q "%AllUsersProfile%\%Desktop%\Skype.lnk"' ><exit code="any" /></upgrade>
 	<upgrade cmd='%COMSPEC% /c del /q "%Public%\Desktop\Skype.lnk"' ><exit code="any" /></upgrade>
 
