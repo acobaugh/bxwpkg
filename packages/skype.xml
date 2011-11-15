@@ -1,0 +1,50 @@
+<package
+	id="skype"
+	name="Skype"
+	revision="2"
+	priority="20">
+ 
+	<variable name="version" value="5.5.0.124" />
+
+	<!-- CHECK -->
+	<check type='logical' condition='and'>
+		<!--The real string is "SkypeTM 5.5" -->
+		<check type="uninstall" condition="exists" path="Skype.*" />
+			<check type='logical' condition='or'>
+ 
+			<!-- The skype.exe version number for 5.5.0.124 is 5.5.32.124 -->
+			<check
+				type="file"
+				condition="versiongreaterorequal"
+				path="%ProgramFiles%\Skype\Phone\Skype.exe"
+				value="%version%" />
+ 
+			<check
+				type="file"
+				condition="versiongreaterorequal"
+				path="%ProgramFiles(x86)%\Skype\Phone\Skype.exe"
+				value="%version%" />
+		</check>
+	</check>
+
+	<!-- INSTALL -->
+	<install cmd='msiexec /qn /i "%SOFTWARE%\skype\SkypeSetup.msi"' /> 
+	<install cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableVersionCheckPolicy" /d "1" /t REG_DWORD /f' />
+	<install cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableSupernodePolicy" /d "1" /t REG_DWORD /f' />
+	<install cmd='%COMSPEC% /C reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "Skype" /f' />
+
+	<!-- UPGRADE -->
+	<upgrade cmd='msiexec /qn /i "%SOFTWARE%\skype\SkypeSetup.msi"' /> 
+	<upgrade cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableVersionCheckPolicy" /d "1" /t REG_DWORD /f' />
+	<upgrade cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableSupernodePolicy" /d "1" /t REG_DWORD /f' />
+	<upgrade cmd='%COMSPEC% /C reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "Skype" /f' />
+
+	<!-- REMOVE -->
+	<!-- Close a running version of Skype -->
+	<remove cmd='"%PROGRAMFILES%\Skype\Phone\Skype.exe" /shutdown' />
+ 
+	<remove cmd='msiexec /x{F1CECE09-7CBE-4E98-B435-DA87CDA86167} /qn /norestart' /> 
+</package>
+
+
+
