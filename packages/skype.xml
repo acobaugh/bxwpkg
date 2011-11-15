@@ -5,8 +5,9 @@
 	revision="%version%-1"
 	priority="20">
  
-	<variable name="version" value="5.5.0.124" />
-
+	<variable name="version" value="5.5.32.124" />
+	<variable name="flags" value="INSTALLLEVEL=1 ALLUSERS=1 STARTSKYPE=FALSE TRANSFORMS=:removeStartup.mst TRANSFORMS=:removeDesktopShortcut.mst" />
+	<variable name="code" value="F1CECE09-7CBE-4E98-B435-DA87CDA86167" />
 	<!-- CHECK -->
 	<check type='logical' condition='and'>
 		<!--The real string is "SkypeTM 5.5" -->
@@ -29,7 +30,7 @@
 	</check>
 
 	<!-- INSTALL -->
-	<install cmd='msiexec /qn /i "%SOFTWARE%\skype\SkypeSetup.msi"' /> 
+	<install cmd='msiexec /qn /i "%SOFTWARE%\skype\SkypeSetup-%version%.msi" %flags%' /> 
 	<install cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableVersionCheckPolicy" /d "1" /t REG_DWORD /f'><exit code="any" /></install>
 	<install cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableSupernodePolicy" /d "1" /t REG_DWORD /f'><exit code="any" /></install>
 	<install cmd='%COMSPEC% /C reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "Skype" /f'><exit code="any" /></install>
@@ -38,7 +39,8 @@
 
 
 	<!-- UPGRADE -->
-	<upgrade cmd='msiexec /qn /i "%SOFTWARE%\skype\SkypeSetup.msi"' /> 
+	<upgrade cmd='msiexec %MSI% /x{%code%}'><exit code="1605" /></upgrade>
+	<upgrade cmd='msiexec /qn /i "%SOFTWARE%\skype\SkypeSetup.msi-%version%.msi" %flags%' /> 
 	<upgrade cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableVersionCheckPolicy" /d "1" /t REG_DWORD /f'><exit code="any" /></upgrade>
 	<upgrade cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableSupernodePolicy" /d "1" /t REG_DWORD /f'><exit code="any" /></upgrade>
 	<upgrade cmd='%COMSPEC% /C reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "Skype" /f'><exit code="any" /></upgrade>
@@ -49,7 +51,7 @@
 	<!-- Close a running version of Skype -->
 	<remove cmd='"%PROGRAMFILES%\Skype\Phone\Skype.exe" /shutdown' />
  
-	<remove cmd='msiexec /x{F1CECE09-7CBE-4E98-B435-DA87CDA86167} /qn /norestart' /> 
+	<remove cmd='msiexec /x{%code%} /qn /norestart' /> 
 </package>
 </packages>
 
