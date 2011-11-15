@@ -1,3 +1,4 @@
+<packages>
 <package
 	id="skype"
 	name="Skype"
@@ -45,6 +46,6 @@
  
 	<remove cmd='msiexec /x{F1CECE09-7CBE-4E98-B435-DA87CDA86167} /qn /norestart' /> 
 </package>
-
+</packages>
 
 
