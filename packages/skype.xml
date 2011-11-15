@@ -40,7 +40,7 @@
 
 	<!-- UPGRADE -->
 	<upgrade cmd='msiexec /qn /norestart /x{%code%}'><exit code="1605" /></upgrade>
-	<upgrade cmd='msiexec /qn /i "%SOFTWARE%\skype\SkypeSetup.msi-%version%.msi" %flags%' /> 
+	<upgrade cmd='msiexec /qn /i "%SOFTWARE%\skype\SkypeSetup-%version%.msi" %flags%' /> 
 	<upgrade cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableVersionCheckPolicy" /d "1" /t REG_DWORD /f'><exit code="any" /></upgrade>
 	<upgrade cmd='%COMSPEC% /C reg add "HKLM\Software\Policies\Skype\Phone" /v "DisableSupernodePolicy" /d "1" /t REG_DWORD /f'><exit code="any" /></upgrade>
 	<upgrade cmd='%COMSPEC% /C reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "Skype" /f'><exit code="any" /></upgrade>
