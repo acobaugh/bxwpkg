@@ -10,7 +10,7 @@
 	<check type="file" condition="versiongreaterorequal" path="%ProgramFiles%\Tivoli\TSM\baclient\dsm.exe" value="%version%" />
 
 	<!-- INSTALL -->
-	<install cmd='msiexec /i /qn "\\wpkg\wpkg\tsm\%version%-TIV-TSMBAC-WinX64-images\TSM_BA_Client\IBM Tivoli Storage Manager Client.msi" %common% ADDLOCAL="%components%,Api64Runtime,Api32Runtime"' architecture="x64"/>
+	<install cmd='msiexec /qn /i "\\wpkg\wpkg\tsm\%version%-TIV-TSMBAC-WinX64-images\TSM_BA_Client\IBM Tivoli Storage Manager Client.msi" %common% ADDLOCAL="%components%,Api64Runtime,Api32Runtime"' architecture="x64"/>
 
 	<!-- UPGRADE -->
 
