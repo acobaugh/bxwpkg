@@ -20,6 +20,7 @@
 		<package package-id="visio2010" />
 		<package package-id="evtsys" />
 		<package package-id="skype" />
+		<package package-id="tsmbaclient" />
 	</profile>
 	<profile id="ritchie_lab">
 		<package package-id="evtsys" />
