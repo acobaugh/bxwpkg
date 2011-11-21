@@ -2,7 +2,7 @@
 <packages>
 <package id="tsmbaclient" name="IBM TSM BA Client" revision="%version%-1" priority="0" reboot="true">
 	<variable name="version" value="6.1.3.0" />
-	<variable name="components" value="BackupArchiveGUI,BackupArchiveWeb,ApiRuntime,AdministrativeCmd,LVSA" />
+	<variable name="components" value="BackupArchiveGUI,BackupArchiveWeb,AdministrativeCmd,LVSA" />
 	<variable name="common" value='RebootYesNo="No" REBOOT="Suppress" ALLUSERS=1' />
 
 	<!-- CHECK -->
